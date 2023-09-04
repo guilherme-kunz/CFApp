@@ -2,6 +2,7 @@ package com.guilhermekunz.cfapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.guilhermekunz.cfapp.api.response.FactsResponse
@@ -27,6 +28,16 @@ class MainActivity : AppCompatActivity() {
         viewModel.catsFactsResponse.observe(this, Observer {
             setAdapter(it)
         })
+        viewModel.loadingStateLiveData.observe(this, Observer {
+            setProgressBar(it)
+        })
+    }
+
+    private fun setProgressBar(state: CatsViewModel.State?) {
+        when (state) {
+            CatsViewModel.State.LOADING -> binding.progressBar.visibility = View.VISIBLE
+            CatsViewModel.State.LOADING_FINISH -> binding.progressBar.visibility = View.GONE
+        }
     }
 
     private fun setAdapter(response: FactsResponse?) {
