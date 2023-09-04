@@ -25,10 +25,12 @@ class CatsAdapter() : RecyclerView.Adapter<CatsAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = response.size
 
-    fun append(response: FactsResponseItem?) {
-        this.response.clear()
-        this.response.addAll(response)
-        notifyDataSetChanged()
+    fun append(response: List<FactsResponseItem>?) {
+        if (response != null) {
+            this.response.clear()
+            this.response.addAll(response)
+            notifyDataSetChanged()
+        }
     }
 
     inner class ViewHolder(binding: CatsItemBinding): RecyclerView.ViewHolder(binding.root) {
