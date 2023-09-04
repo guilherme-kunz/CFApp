@@ -1,64 +1,42 @@
 package com.guilhermekunz.cfapp.ui
 
-import androidx.lifecycle.Observer
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.guilhermekunz.cfapp.api.repository.Repository
 import com.guilhermekunz.cfapp.api.response.FactsResponse
 import com.guilhermekunz.cfapp.api.response.NetworkResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 
-@ExperimentalCoroutinesApi
-class CatsViewModelTest {
+class CatsViewModel(val repository: Repository) : ViewModel() {
 
-    @get:Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
+    var loadingStateLiveData = MutableLiveData<State>()
 
-    private val testDispatcher = TestCoroutineDispatcher()
-    private val testScope = TestCoroutineScope(testDispatcher)
+    private val _catsFactsResponse = MutableLiveData<FactsResponse?>()
+    val catsFactsResponse: LiveData<FactsResponse?> =
+        _catsFactsResponse
 
-    @Mock
-    private lateinit var repository: Repository
+    private val _error = MutableLiveData<Unit>()
+    val error = _error as LiveData<Unit>
 
-    @Mock
-    private lateinit var factsObserver: Observer<FactsResponse?>
-
-    @Mock
-    private lateinit var errorObserver: Observer<Unit>
-
-    private lateinit var viewModel: CatsViewModel
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.openMocks(this)
-        Dispatchers.setMain(testDispatcher)
-        viewModel = CatsViewModel(repository)
-        viewModel.catsFactsResponse.observeForever(factsObserver)
-        viewModel.error.observeForever(errorObserver)
+    fun getCatsFacts() {
+        viewModelScope.launch {
+            loadingStateLiveData.value = State.LOADING
+            when (val response = repository.getCatsFacts()) {
+                is NetworkResponse.Success -> {
+                    _catsFactsResponse.value = response.data
+                }
+                is NetworkResponse.Failed -> {
+                    _error.value = Unit
+                }
+            }
+            loadingStateLiveData.value = State.LOADING_FINISH
+        }
     }
 
-    @After
-    fun cleanup() {
-        Dispatchers.resetMain()
-        testScope.cleanupTestCoroutines()
+    enum class State {
+        LOADING, LOADING_FINISH
     }
 
-    @Test
-    fun `test getCatsFacts success`() = runBlocking {
-        val mockResponse = FactsResponse(/* Your mock data here */)
-        Mockito.`when`(repository.getCatsFacts()).thenReturn(NetworkResponse.Success(mockResponse))
-
-        viewModel.getCatsFacts()
-
-        Mockito.verify(factsObserver).onChanged(mockResponse)
-    }
-
-    @Test
-    fun `test getCatsFacts failure`() = runBlocking {
-        Mockito.`when`(repository.getCatsFacts()).thenReturn(NetworkResponse.Failed)
-
-        viewModel.getCatsFacts()
-
-        Mockito.verify(errorObserver).onChanged(Unit)
-    }
 }
