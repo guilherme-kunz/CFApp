@@ -1,6 +1,4 @@
 
-{
-Kapp/src/androidTest/java/com/guilhermekunz/cfapp/ExampleInstrumentedTest.kt,9/4/943eb5fcc17e765ef7c1b71eb3655f71f92b6e62
 7
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
 X
@@ -16,16 +14,12 @@ A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
-l
-<app/src/test/java/com/guilhermekunz/cfapp/ExampleUnitTest.kt,1/e/1ee0acc4e2615cb4dabf40d5d13381fdb2914a0e
 >
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
 F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
-@
-build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
 y
 Iapp/src/main/java/com/guilhermekunz/cfapp/api/response/NetworkResponse.kt,9/3/936ce40b565d04c8182117d5b93491477ddad973
 r
@@ -100,8 +94,6 @@ w
 G.idea/sonarlint/issuestore/5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f,3/1/31c4cd19c36ab63325379c8a050c1688b5493ffd
 Å
 Q.idea/sonarlint/securityhotspotstore/f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e,2/a/2a357145b04aeee0545d8bc616c6d89a975ff771
-D
-app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
 w
 G.idea/sonarlint/issuestore/5/f/5fbe2371f4a978f8b2b74e68f247a9c6e531daae,e/6/e618eb68a9a98dcf73e80f07fca1f6c5ea777b52
 w

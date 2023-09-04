@@ -69,4 +69,10 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-navigation:3.4.3")
     testImplementation("io.insert-koin:koin-test-junit4:3.4.3")
 
+    //Tests
+    testImplementation("androidx.test:core:4.10.3")
+    testImplementation("org.mockito:mockito-core:5.5.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.5.0")
+    testImplementation("io.mockk:mockk:1.13.7")
+
 }

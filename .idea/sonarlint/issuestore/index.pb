@@ -18,14 +18,8 @@ F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
-{
-Kapp/src/androidTest/java/com/guilhermekunz/cfapp/ExampleInstrumentedTest.kt,9/4/943eb5fcc17e765ef7c1b71eb3655f71f92b6e62
-l
-<app/src/test/java/com/guilhermekunz/cfapp/ExampleUnitTest.kt,1/e/1ee0acc4e2615cb4dabf40d5d13381fdb2914a0e
 C
 settings.gradle.kts,7/4/749edfcc96398253e5b3416184e95c46621da850
-@
-build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
 r
 Bapp/src/main/java/com/guilhermekunz/cfapp/api/response/ApiError.kt,a/e/ae7e79d969cea57cef0135f6ebdc53645c44a6e9
 y
@@ -106,7 +100,5 @@ G.idea/sonarlint/issuestore/2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3,9/a/9a
 Q.idea/sonarlint/securityhotspotstore/5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9,1/e/1e45613b6060de813dc92caeb118e08a2124bc35
 w
 G.idea/sonarlint/issuestore/2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4,5/1/516e730a14e71f02fa73f3acd6dc7cea9a9fe002
-D
-app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
 g
 7app/src/main/java/com/guilhermekunz/cfapp/di/Modules.kt,5/b/5ba618fd4d2c2866571b08ad00bc3d8682213998
